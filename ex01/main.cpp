@@ -9,6 +9,6 @@ int main()
 	{
 		zomb2[i].announce();
 	}
-	delete(zomb2);
+	delete [] zomb2;
 	return (0);
 }
