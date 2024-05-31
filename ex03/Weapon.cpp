@@ -14,7 +14,7 @@ Weapon::~Weapon(void)
 void Weapon::setType(std:: string club)
 {
 	std::string& str = club;
-	this->_type = club;
+	this->_type = str;
 }
 
 std::string const Weapon::getWeapon(void)

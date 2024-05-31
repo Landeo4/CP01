@@ -1,22 +1,28 @@
-// #include "HumanB.hpp"
+#include "HumanB.hpp"
 
-// HumanB::HumanB(std::string club)
-// {
-// 	setType(club);
-// 	return ;
-// }
+HumanB::HumanB(std::string club)
+{
+	setType(club);
+	return ;
+}
 
-// void HumanB::setType(std::string club)
-// {
-// 	this->_name = club;
-// }
+HumanB::~HumanB(void)
+{
+	return ;
+}
 
-// std::string HumanB::getType(void)
-// {
-// 	return this->_name;
-// }
+void HumanB::setWeapon(std::string club)
+{
+	std::string* str = &club;
+	this->_type = *str;
+}
 
-// HumanB::~HumanB(void)
-// {
-// 	return ;
-// }
+std::string HumanB::getWeapon(void)
+{
+	return (this->_);
+} 
+
+void HumanB::attack(void)
+{
+	std::cout << this->getWeapon() << std::endl;
+}
