@@ -2,12 +2,13 @@
 #include "Weapon.hpp"
 
 // HumanA::HumanA(std::string weapon, std::string name) weapon("club"), name("bob");
-
-HumanA::HumanA(std::string name, )
-{
-	this->name = name;
-	return ;
-}
+// liste d'initialisation
+HumanA::HumanA(std::string name, Weapon& club): _name(name), _weapon(club){}
+// {
+// 	this->setName(name);
+// 	&this->weapon = club.getWeapon();
+// 	return ;
+// }
 
 HumanA::~HumanA(void)
 {
@@ -16,5 +17,5 @@ HumanA::~HumanA(void)
 
 void HumanA::attack(void)
 {
-	std::cout << this->name << " attacks with their " << this->weapon << std::endl;
+	std::cout << this->_weapon << std::endl;
 }

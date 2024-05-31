@@ -1,7 +1,8 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(void)
+Weapon::Weapon(std::string club)
 {
+	setType(club);
 	return ;
 }
 
@@ -10,9 +11,10 @@ Weapon::~Weapon(void)
 	return ;
 }
 
-void Weapon::setWeapon(std::string str)
+void Weapon::setType(std:: string club)
 {
-	this->_type = str;
+	std::string& str = club;
+	this->_type = club;
 }
 
 std::string const Weapon::getWeapon(void)
