@@ -13,11 +13,10 @@ Weapon::~Weapon(void)
 
 void Weapon::setType(std:: string club)
 {
-	std::string& str = club;
-	this->_type = str;
+	this->_type = club;
 }
 
-std::string const Weapon::getWeapon(void)
+std::string Weapon::getType(void)
 {
 	return this->_type;
 }

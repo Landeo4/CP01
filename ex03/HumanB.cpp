@@ -1,8 +1,8 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string club)
+HumanB::HumanB(std::string name)
 {
-	setType(club);
+	this->_name = name;
 	return ;
 }
 
@@ -11,18 +11,22 @@ HumanB::~HumanB(void)
 	return ;
 }
 
-void HumanB::setWeapon(std::string club)
+void HumanB::setWeapon(Weapon &club)
 {
-	std::string* str = &club;
-	this->_type = *str;
+	this->_weapon = &club;
 }
 
-std::string HumanB::getWeapon(void)
+Weapon* HumanB::getWeapon(void)
 {
-	return (this->_);
-} 
+	return this->_weapon;
+}
 
 void HumanB::attack(void)
 {
-	std::cout << this->getWeapon() << std::endl;
+	if (!this->_weapon)
+	{
+		std::cout << "puching aggresively " << std::endl;
+		return ;
+	}
+	std::cout << getWeapon()->getType() << std::endl;
 }
