@@ -1,10 +1,16 @@
-#include <string.h>
+
 #include "Replace.hpp"
 
-int main()
+int main(int argc, char** argv)
 {
+	if (argc != 4)
+	{
+		std::cout << "problem in your input" << std::endl;
+		return (0);
+	}
 	Replace obj;
 
+	obj.copy(argv);
 }
 
 // cree prog qui prend trois param

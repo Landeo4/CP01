@@ -1,4 +1,4 @@
-NAME	=	Unnecessary_violence
+NAME	=	Sed_is_for_losers
 
 SRCS	=	main.cpp \
 			Replace.cpp \
