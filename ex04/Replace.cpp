@@ -34,16 +34,14 @@ void Replace::copy(char** argv)
 {
 	std::ifstream inf(argv[1]);
 	std::ofstream ouf("dest.txt");
-	std::string str;
 	std::filebuf* pbuf = inf.rdbuf();
 	std::size_t size = pbuf->pubseekoff(0, inf.end, inf.in);
 	pbuf->pubseekpos(0, inf.in);
 	char* buf = new char[size];
 	pbuf->sgetn(buf, size);
-
+	inf.close();
 	this->setCur(argv[2]);
 	this->setDest(argv[3]);
-	// std::cout << buf;
 	int i = 0;
 	int c = 0;
 	int j = 0;
@@ -80,8 +78,8 @@ void Replace::copy(char** argv)
 		j++;
 		i++;
 	}
-	std::cout << "voici mon input " << fin;
-	// delete(buf);
-	inf.close();
+	delete [] buf;
+	ouf << fin;
+	delete [] fin;
 	ouf.close();
 }
