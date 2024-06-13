@@ -33,12 +33,18 @@ void Replace::setCur(std::string cur)
 void Replace::copy(char** argv)
 {
 	std::ifstream inf(argv[1]);
-	std::ofstream ouf("dest.txt");
+
+	std::string	abc;
+	abc = argv[1];
+	std::string	wef;
+	wef = abc + ".replace";
+
+	std::ofstream ouf(wef.c_str());
 	std::filebuf* pbuf = inf.rdbuf();
 	std::size_t size = pbuf->pubseekoff(0, inf.end, inf.in);
 	pbuf->pubseekpos(0, inf.in);
-	char* buf = new char[size];
-	pbuf->sgetn(buf, size);
+	char* buf = new char[size + 1];
+	pbuf->sgetn(buf, size + 1);
 	inf.close();
 	this->setCur(argv[2]);
 	this->setDest(argv[3]);
@@ -46,18 +52,23 @@ void Replace::copy(char** argv)
 	int c = 0;
 	int j = 0;
 	int x = 0;
+	int tmp = 0;
 	while (argv[2][c])
 		c++;
-	int len = argv[2][c];
-	char* fin = new char [size];
-	while (buf[i])
+	int len = c;
+	char* fin = new char [size + 1];
+	while (buf[i + 1])
 	{
 		c = 0;
 		x = i;
-		while (buf[i] == argv[2][c])
+		tmp = i;
+		while (buf[tmp] == argv[2][c])
 		{
-			if (c == len)
+			std::cout << "voici ma len " << len;
+			std::cout << " voici ma C " << c << std::endl;
+			if (c == (len - 1))
 			{
+				std::cout << "je suis dans le if" << len << std::endl;
 				c = 0;
 				while (argv[3][c])
 				{
@@ -67,7 +78,7 @@ void Replace::copy(char** argv)
 				}
 			}
 			c++;
-			i++;
+			tmp++;
 		}
 		while (x < i)
 		{
@@ -78,8 +89,11 @@ void Replace::copy(char** argv)
 		j++;
 		i++;
 	}
-	delete [] buf;
+	fin[j] = buf[i];
+	j++;
+	fin[j] = '\0';
 	ouf << fin;
+	delete [] buf;
 	delete [] fin;
 	ouf.close();
 }
