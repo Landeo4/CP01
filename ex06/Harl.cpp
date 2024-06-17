@@ -36,15 +36,40 @@ void Harl::complain(std::string level)
 
 	f fct[] = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::error};
 	std::string str[4] = {"debug", "info", "warning", "error"};
-	while (i < 4 && level.compare(str[i]) != 0)
-		i++;
-	if (i < 4)
+	if (level != "debug" || level != "info" || level != "warning" || level != "error")
 	{
-		f neew = fct[i];
-		(this->*neew)();
-	}
-	else
 		std::cout << "problem with your input" << std::endl;
+		return ;
+	}
+	switch (4)
+	{
+	case 1:
+		f neew = fct[0];
+		(this->*neew)();
+		break;
+	case 2:
+		f neew = fct[1];
+		(this->*neew)();
+		break;
+	case 3:
+		f neew = fct[2];
+		(this->*neew)();
+		break;
+	case 4:
+		f neew = fct[3];
+		(this->*neew)();
+		break;
+	default:
+		break;
+	}
+	// while (i < 4 && level.compare(str[i]) != 0)
+	// 	i++;
+	// if (i < 4)
+	// {
+	// 	f neew = fct[i];
+	// 	(this->*neew)();
+	// }
+	// else
 }
 
 //idee pour faire cette exo:

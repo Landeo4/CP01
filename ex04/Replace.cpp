@@ -64,11 +64,8 @@ void Replace::copy(char** argv)
 		tmp = i;
 		while (buf[tmp] == argv[2][c])
 		{
-			std::cout << "voici ma len " << len;
-			std::cout << " voici ma C " << c << std::endl;
 			if (c == (len - 1))
 			{
-				std::cout << "je suis dans le if" << len << std::endl;
 				c = 0;
 				while (argv[3][c])
 				{

@@ -4,8 +4,8 @@ int main()
 {
 	Zombie zomb;
 
-	Zombie *zomb2 = zomb.zombieHorde(2147483647, "Alexis");
-	for (int i = 0; i < 2147483647; i++)
+	Zombie *zomb2 = zomb.zombieHorde(1000, "Alexis");
+	for (int i = 0; i < 1000; i++)
 	{
 		zomb2[i].announce();
 	}

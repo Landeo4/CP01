@@ -5,7 +5,7 @@ int main()
 	Zombie	zomb;
 
 	zomb.randomChump("Zombie");
-	Zombie *zomb2 = zomb.newZombie("Alexis");
+	Zombie *zomb2 = zomb.newZombie("Zombie2");
 	zomb2->announce();
 	delete(zomb2);
 	return (0);
