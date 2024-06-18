@@ -5,8 +5,13 @@ int main(int argc, char** argv)
 {
 	if (argc != 4)
 	{
-		std::cout << "problem in your input" << std::endl;
+		std::cout << "Please put 4 argument" << std::endl;
 		return (0);
+	}
+	if (argv[2] == NULL|| argv[3] == NULL)
+	{
+		std::cout << "Please put valid arguments" << std::endl;
+		return 0;
 	}
 	Replace obj;
 
