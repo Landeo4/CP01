@@ -3,6 +3,7 @@
 HumanB::HumanB(std::string name)
 {
 	this->_name = name;
+	this->_weapon = NULL;
 	return ;
 }
 
@@ -25,8 +26,8 @@ void HumanB::attack(void)
 {
 	if (!this->_weapon)
 	{
-		std::cout << "puching aggresively " << std::endl;
+		std::cout << this->_name << " can't attack " << std::endl;
 		return ;
 	}
-	std::cout << getWeapon()->getType() << std::endl;
+	std::cout << this->_name << " use " << getWeapon()->getType() << std::endl;
 }
