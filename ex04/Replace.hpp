@@ -6,6 +6,7 @@
 #include <fstream>
 #include <new>
 #include <string>
+#include <algorithm>
 
 class Replace{
 	public:

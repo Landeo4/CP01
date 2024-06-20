@@ -34,25 +34,50 @@ void Replace::copy(char** argv)
 {
 	std::ifstream inf(argv[1]);
 	std::string	wef;
-	wef = argv[1] + ".replace";
+	std::string	abc;
+	abc = argv[1];
+	wef = abc + ".replace";
 	std::ofstream ouf(wef.c_str());
 	std::filebuf* pbuf = inf.rdbuf();
 	std::size_t size = pbuf->pubseekoff(0, inf.end, inf.in);
 	pbuf->pubseekpos(0, inf.in);
-	char* buf = new char[size + 1];
-	std::string buf2 = new buf;
+	char * buf = new char[size + 1];
 	pbuf->sgetn(buf, size + 1);
+	std::string buf2 = buf;
+	std::string ar2 = argv[2];
+	int curr = 0;
 	inf.close();
-	while (buf2[i])
+	// std::size_t bg = 0;
+	// size_t p = std::find(bg, size, argv[2]);
+	std::cout << "juste avant while" << std::endl;
+	// std::cout << "voici contenue de buf2 " << buf2 << std::endl;
+	std::size_t pos = 0;
+	while (42)
 	{
-
+		// std::cout << "voici contenue de argv2  " << argv[2] << std::endl;
+		pos = buf2.find(buf2, curr);
+		std::cout << "voici pos " << pos << std::endl;
+		std::cout << "voici buf2 " << buf2 << std::endl;
+		std::cout << "voici curr " << curr << std::endl;
+		if (pos == std::string::npos)
+			break;
+		curr = pos + buf2.size();
+		buf2.erase(pos, ar2.size());
+		buf2.insert(pos, argv[3]);
+		std::cout << "boucle" << std::endl;
+		// pos += buf2.size();
 	}
-
-	ouf << nv;
-	delete nv;
-	delete [] buf;
-	delete [] buf2;
-	return (0);
+	// while (count > 0)
+	// {
+	// 	// size_t length = buf2.find(argv[2]);
+	// 	std::cout << "debut while" << std::endl;
+	// 	buf2.erase(pos);
+	// 	buf2.insert(pos, argv[3]);
+	// 	std::cout << "juste avant second appel" << std::endl;
+	// }
+	std::cout << "je sors" << std::endl;
+	ouf << buf2;
+	ouf.close();
 }
 
 // void Replace::copy(char** argv)
