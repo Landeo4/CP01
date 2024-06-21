@@ -43,6 +43,7 @@ void Replace::copy(char** argv)
 	pbuf->pubseekpos(0, inf.in);
 	char * buf = new char[size + 1];
 	pbuf->sgetn(buf, size + 1);
+	buf[size] = '\0';
 	std::string buf2 = buf;
 	std::string ar2 = argv[2];
 	std::string ar3 = argv[3];
@@ -59,5 +60,6 @@ void Replace::copy(char** argv)
 		curr = pos + ar3.size();
 	}
 	ouf << buf2;
+	delete [] buf;
 	ouf.close();
 }
